@@ -154,6 +154,32 @@ body {
   color: var(--mist);
 }
 
+.author {
+  margin-top: 2.75rem;
+  animation: rise 0.7s ease both;
+  animation-delay: 0.22s;
+}
+
+.author p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--mist);
+}
+
+.author a {
+  color: var(--fog);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.author a:hover,
+.author a:focus-visible {
+  color: var(--signal-soft);
+  border-bottom-color: rgba(240, 192, 120, 0.45);
+  outline: none;
+}
+
 @keyframes rise {
   from {
     opacity: 0;
