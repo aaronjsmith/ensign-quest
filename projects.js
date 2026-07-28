@@ -2,8 +2,8 @@
 window.ENSIGN_PROJECTS = [
   {
     name: "MAT 107",
-    host: "mat107.ensign.quest",
-    url: "https://mat107.ensign.quest",
+    host: "mat.107.ensign.quest",
+    url: "https://mat.107.ensign.quest",
     blurb: "Course site for MAT 107.",
   },
 ];

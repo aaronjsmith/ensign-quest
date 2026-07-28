@@ -1,14 +1,19 @@
 :root {
-  --ink: #07131a;
-  --ink-soft: #102531;
-  --fog: #d7e6e8;
-  --mist: #9eb8bc;
-  --signal: #e8a23a;
-  --signal-soft: #f0c078;
-  --line: rgba(215, 230, 232, 0.14);
-  --glow: rgba(56, 148, 148, 0.22);
-  --font-brand: "Syne", sans-serif;
-  --font-body: "Figtree", sans-serif;
+  /* Ensign.quest logo + ensign.edu-adjacent palette */
+  --green: #006248;
+  --green-deep: #004731;
+  --green-sage: #58af58;
+  --gold: #c99700;
+  --gold-soft: #d1a23d;
+  --ink: #212925;
+  --ink-soft: #3d4b44;
+  --ink-mute: #4d5d55;
+  --paper: #ffffff;
+  --paper-soft: #f4f6f5;
+  --line: rgba(33, 41, 37, 0.14);
+  --font-brand: "Montserrat", sans-serif;
+  --font-serif: "Libre Baskerville", serif;
+  --font-body: "Montserrat", sans-serif;
 }
 
 *,
@@ -18,15 +23,15 @@
 }
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
   font-family: var(--font-body);
-  color: var(--fog);
-  background: var(--ink);
+  color: var(--ink);
+  background: var(--paper);
   line-height: 1.5;
 }
 
@@ -35,24 +40,25 @@ body {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(ellipse 80% 55% at 12% -10%, var(--glow), transparent 55%),
-    radial-gradient(ellipse 60% 45% at 95% 15%, rgba(232, 162, 58, 0.12), transparent 50%),
-    linear-gradient(165deg, var(--ink-soft) 0%, var(--ink) 48%, #041016 100%);
+    linear-gradient(180deg, var(--green) 0 4.5rem, transparent 4.5rem),
+    radial-gradient(ellipse 55% 40% at 100% 8%, rgba(201, 151, 0, 0.12), transparent 50%),
+    radial-gradient(ellipse 70% 45% at 0% 0%, rgba(88, 175, 88, 0.16), transparent 55%),
+    linear-gradient(165deg, var(--paper) 0%, var(--paper-soft) 55%, #eef3f0 100%);
 }
 
 .atmosphere::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
-  opacity: 0.55;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  opacity: 0.45;
   pointer-events: none;
 }
 
 .shell {
   width: min(42rem, calc(100% - 2.5rem));
   margin: 0 auto;
-  padding: clamp(4.5rem, 14vh, 7.5rem) 0 4rem;
+  padding: clamp(5.5rem, 14vh, 8rem) 0 4rem;
 }
 
 .brand {
@@ -60,31 +66,32 @@ body {
   animation: rise 0.7s ease both;
 }
 
-.brand__mark {
-  margin: 0 0 1.1rem;
-  font-family: var(--font-brand);
-  font-size: clamp(2.6rem, 8vw, 4.1rem);
-  font-weight: 800;
-  letter-spacing: -0.045em;
-  line-height: 0.95;
-  color: #f4fbfb;
+.brand__logo {
+  margin: 0 0 1.35rem;
+}
+
+.brand__logo img {
+  display: block;
+  width: min(100%, 28rem);
+  height: auto;
 }
 
 .brand__lead {
   margin: 0 0 0.55rem;
   font-family: var(--font-brand);
-  font-size: 0.95rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--signal);
+  color: var(--gold);
 }
 
 .brand__copy {
   margin: 0;
   max-width: 28rem;
-  color: var(--mist);
+  color: var(--ink-soft);
   font-size: 1.05rem;
+  font-weight: 400;
 }
 
 .project-list {
@@ -119,65 +126,77 @@ body {
   border-bottom: 1px solid var(--line);
   color: inherit;
   text-decoration: none;
-  transition: color 0.2s ease, padding-left 0.25s ease;
+  transition: color 0.2s ease, padding-left 0.25s ease, background-color 0.2s ease;
 }
 
 .project-link:hover,
 .project-link:focus-visible {
-  color: #fff;
+  color: var(--green);
   padding-left: 0.35rem;
   outline: none;
 }
 
 .project-link__name {
-  font-family: var(--font-brand);
+  font-family: var(--font-serif);
   font-size: 1.35rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 
 .project-link__host {
-  font-size: 0.92rem;
-  color: var(--mist);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--ink-mute);
   transition: color 0.2s ease;
 }
 
 .project-link:hover .project-link__host,
 .project-link:focus-visible .project-link__host {
-  color: var(--signal-soft);
+  color: var(--green);
 }
 
 .project-link__blurb {
   grid-column: 1 / -1;
   margin: 0;
-  font-size: 0.98rem;
-  color: var(--mist);
+  font-size: 0.95rem;
+  color: var(--ink-soft);
 }
 
-.author {
+.site-footer {
   margin-top: 2.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
   animation: rise 0.7s ease both;
   animation-delay: 0.22s;
 }
 
-.author p {
-  margin: 0;
+.author {
+  margin: 0 0 0.85rem;
   font-size: 0.95rem;
-  color: var(--mist);
+  color: var(--ink-soft);
 }
 
 .author a {
-  color: var(--fog);
+  color: var(--green);
+  font-weight: 600;
   text-decoration: none;
   border-bottom: 1px solid transparent;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 .author a:hover,
 .author a:focus-visible {
-  color: var(--signal-soft);
-  border-bottom-color: rgba(240, 192, 120, 0.45);
+  color: var(--green-deep);
+  border-bottom-color: rgba(0, 98, 72, 0.35);
   outline: none;
+}
+
+.disclaimer {
+  margin: 0;
+  max-width: 30rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--ink-mute);
 }
 
 @keyframes rise {
@@ -192,6 +211,13 @@ body {
 }
 
 @media (max-width: 540px) {
+  .atmosphere {
+    background:
+      linear-gradient(180deg, var(--green) 0 3.5rem, transparent 3.5rem),
+      radial-gradient(ellipse 70% 45% at 0% 0%, rgba(88, 175, 88, 0.18), transparent 55%),
+      linear-gradient(165deg, var(--paper) 0%, var(--paper-soft) 55%, #eef3f0 100%);
+  }
+
   .project-link {
     grid-template-columns: 1fr;
     gap: 0.35rem;
@@ -204,7 +230,8 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .brand,
-  .project-list__item {
+  .project-list__item,
+  .site-footer {
     animation: none;
   }
 
