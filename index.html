@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ensign.quest</title>
+    <title>ensign.quest — Knowledge base</title>
     <meta
       name="description"
       content="Tools for Ensign College classes and other LDS-centric resources."
@@ -22,38 +22,58 @@
   <body>
     <div class="atmosphere" aria-hidden="true"></div>
 
-    <a class="site-logo" href="/">
-      <img
-        src="assets/ensign-quest-logo.svg"
-        alt="Ensign.quest"
-        width="929"
-        height="275"
-      />
-    </a>
+    <header class="topbar">
+      <a class="site-logo" href="/">
+        <img
+          src="assets/ensign-quest-logo.svg"
+          alt="Ensign.quest"
+          width="929"
+          height="275"
+        />
+      </a>
+      <p class="topbar__label">Knowledge base</p>
+    </header>
 
-    <main class="shell">
-      <header class="brand">
-        <h1 class="brand__lead">Projects</h1>
-        <p class="brand__copy">
-          Various tools for Ensign College classes and other LDS-centric tools.
-        </p>
-      </header>
+    <div class="layout">
+      <aside class="sidebar" aria-label="Contents">
+        <p class="sidebar__heading">Contents</p>
+        <nav class="toc" id="toc"></nav>
+      </aside>
 
-      <section class="projects" aria-label="Project list">
-        <ul class="project-list" id="project-list"></ul>
-      </section>
+      <main class="shell">
+        <header class="intro">
+          <p class="intro__eyebrow">Browse</p>
+          <h1 class="intro__title">Knowledge base</h1>
+          <p class="intro__copy">
+            Various tools for Ensign College classes and other LDS-centric tools.
+          </p>
+          <label class="search">
+            <span class="visually-hidden">Search the knowledge base</span>
+            <input
+              id="kb-search"
+              type="search"
+              placeholder="Search topics…"
+              autocomplete="off"
+            />
+          </label>
+        </header>
 
-      <footer class="site-footer">
-        <p class="author">
-          By
-          <a href="https://aaronjsmith.me" rel="author me">aaronjsmith.me</a>
-        </p>
-        <p class="disclaimer">
-          Created by a student of Ensign College. Not affiliated with or
-          authorized by Ensign College.
-        </p>
-      </footer>
-    </main>
+        <div class="kb" id="kb"></div>
+
+        <p class="kb-empty" id="kb-empty" hidden>No matching topics.</p>
+
+        <footer class="site-footer">
+          <p class="author">
+            By
+            <a href="https://aaronjsmith.me" rel="author me">aaronjsmith.me</a>
+          </p>
+          <p class="disclaimer">
+            Created by a student of Ensign College. Not affiliated with or
+            authorized by Ensign College.
+          </p>
+        </footer>
+      </main>
+    </div>
 
     <script src="projects.js"></script>
     <script src="app.js"></script>
