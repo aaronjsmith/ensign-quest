@@ -1,4 +1,4 @@
-/** Knowledge base entries — grouped by section. */
+/** Project entries — grouped by section. */
 window.ENSIGN_KB = [
   {
     id: "courses",
