@@ -169,6 +169,45 @@ body {
   color: var(--ink-soft);
 }
 
+.project-list__item--section {
+  padding: 1.15rem 0 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.project-section__title {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--green);
+}
+
+.project-section__blurb {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.project-list--nested {
+  border-top: none;
+  margin: 0;
+  padding: 0 0 0.25rem 0.85rem;
+}
+
+.project-list--nested .project-link {
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+.project-list--nested .project-list__item:last-child .project-link {
+  border-bottom: none;
+}
+
+.project-list--nested .project-link__name {
+  font-size: 1.1rem;
+}
+
 .site-footer {
   margin-top: 2.75rem;
   padding-top: 1.25rem;

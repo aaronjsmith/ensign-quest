@@ -12,12 +12,7 @@
     return;
   }
 
-  const fragment = document.createDocumentFragment();
-
-  for (const project of projects) {
-    const item = document.createElement("li");
-    item.className = "project-list__item";
-
+  function createLink(project) {
     const link = document.createElement("a");
     link.className = "project-link";
     link.href = project.url;
@@ -40,7 +35,45 @@
       link.appendChild(blurb);
     }
 
-    item.appendChild(link);
+    return link;
+  }
+
+  const fragment = document.createDocumentFragment();
+
+  for (const project of projects) {
+    const item = document.createElement("li");
+    item.className = "project-list__item";
+
+    if (project.children && project.children.length) {
+      item.classList.add("project-list__item--section");
+
+      const heading = document.createElement("h2");
+      heading.className = "project-section__title";
+      heading.textContent = project.name;
+      item.appendChild(heading);
+
+      if (project.blurb) {
+        const blurb = document.createElement("p");
+        blurb.className = "project-section__blurb";
+        blurb.textContent = project.blurb;
+        item.appendChild(blurb);
+      }
+
+      const children = document.createElement("ul");
+      children.className = "project-list project-list--nested";
+
+      for (const child of project.children) {
+        const childItem = document.createElement("li");
+        childItem.className = "project-list__item";
+        childItem.appendChild(createLink(child));
+        children.appendChild(childItem);
+      }
+
+      item.appendChild(children);
+    } else {
+      item.appendChild(createLink(project));
+    }
+
     fragment.appendChild(item);
   }
 
