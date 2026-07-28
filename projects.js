@@ -22,7 +22,12 @@ window.ENSIGN_KB = [
         name: "Old Testament 2026",
         host: "2026.24.ot.comefollowme.ensign.quest",
         url: "https://2026.24.ot.comefollowme.ensign.quest",
-        blurb: "Come Follow Me — Old Testament 2026.",
+        blurb:
+          "Companion tools for Come Follow Me — Old Testament 2026, aligned with the official lesson.",
+        reference: {
+          label: "Come Follow Me for Home and Church: Old Testament 2026",
+          url: "https://www.churchofjesuschrist.org/study/manual/come-follow-me-for-home-and-church-old-testament-2026/25?lang=eng",
+        },
       },
     ],
   },

@@ -16,7 +16,9 @@
     return (
       matchesQuery(entry.name, query) ||
       matchesQuery(entry.host || "", query) ||
-      matchesQuery(entry.blurb || "", query)
+      matchesQuery(entry.blurb || "", query) ||
+      matchesQuery(entry.reference?.label || "", query) ||
+      matchesQuery(entry.reference?.url || "", query)
     );
   }
 
@@ -29,29 +31,44 @@
   }
 
   function createEntryLink(entry) {
-    const link = document.createElement("a");
-    link.className = "kb-entry";
-    link.href = entry.url;
-    link.rel = "noopener noreferrer";
+    const item = document.createElement("article");
+    item.className = "kb-entry";
 
-    const title = document.createElement("span");
+    const title = document.createElement("a");
     title.className = "kb-entry__title";
+    title.href = entry.url;
+    title.rel = "noopener noreferrer";
     title.textContent = entry.name;
 
     const meta = document.createElement("span");
     meta.className = "kb-entry__meta";
     meta.textContent = entry.host;
 
-    link.append(title, meta);
+    item.append(title, meta);
 
     if (entry.blurb) {
       const blurb = document.createElement("p");
       blurb.className = "kb-entry__blurb";
       blurb.textContent = entry.blurb;
-      link.appendChild(blurb);
+      item.appendChild(blurb);
     }
 
-    return link;
+    if (entry.reference && entry.reference.url) {
+      const reference = document.createElement("p");
+      reference.className = "kb-entry__reference";
+      reference.append("See also: ");
+
+      const refLink = document.createElement("a");
+      refLink.href = entry.reference.url;
+      refLink.rel = "noopener noreferrer";
+      refLink.target = "_blank";
+      refLink.textContent =
+        entry.reference.label || "Official Come Follow Me lesson";
+      reference.appendChild(refLink);
+      item.appendChild(reference);
+    }
+
+    return item;
   }
 
   function render(query) {
