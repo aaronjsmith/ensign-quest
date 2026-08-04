@@ -34,17 +34,21 @@
     const item = document.createElement("article");
     item.className = "kb-entry";
 
+    const heading = document.createElement("h3");
+    heading.className = "kb-entry__heading";
+
     const title = document.createElement("a");
     title.className = "kb-entry__title";
     title.href = entry.url;
     title.rel = "noopener noreferrer";
     title.textContent = entry.name;
+    heading.appendChild(title);
 
     const meta = document.createElement("span");
     meta.className = "kb-entry__meta";
     meta.textContent = entry.host;
 
-    item.append(title, meta);
+    item.append(heading, meta);
 
     if (entry.blurb) {
       const blurb = document.createElement("p");
