@@ -199,14 +199,24 @@ body {
   margin: 0;
   padding: 0;
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17.5rem), 1fr));
   gap: 0.85rem;
+  align-items: stretch;
+}
+
+.kb-list__item {
+  display: flex;
+  min-width: 0;
 }
 
 .kb-entry {
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 0.4rem 1rem;
-  align-items: baseline;
+  grid-template-columns: 1fr;
+  gap: 0.35rem;
+  align-content: start;
+  flex: 1;
+  width: 100%;
+  min-width: 0;
   padding: 1.1rem 1.15rem 1.15rem;
   border: 1px solid var(--line);
   border-radius: 0.45rem;
@@ -248,21 +258,21 @@ body {
 }
 
 .kb-entry__meta {
+  order: -1;
+  overflow-wrap: anywhere;
   font-family: ui-monospace, "Cascadia Code", "Segoe UI Mono", monospace;
   font-size: 0.78rem;
   color: var(--ink-mute);
 }
 
 .kb-entry__blurb {
-  grid-column: 1 / -1;
-  margin: 0.15rem 0 0;
+  margin: 0.2rem 0 0;
   font-size: 0.92rem;
   color: var(--ink-soft);
 }
 
 .kb-entry__reference {
-  grid-column: 1 / -1;
-  margin: 0.35rem 0 0;
+  margin: 0.45rem 0 0;
   padding-top: 0.55rem;
   border-top: 1px solid var(--line);
   font-size: 0.85rem;
@@ -353,15 +363,6 @@ body {
 
   .site-logo {
     width: min(11rem, 55vw);
-  }
-
-  .kb-entry {
-    grid-template-columns: 1fr;
-    gap: 0.25rem;
-  }
-
-  .kb-entry__meta {
-    order: -1;
   }
 }
 
