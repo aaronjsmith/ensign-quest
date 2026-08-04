@@ -30,6 +30,12 @@ window.ENSIGN_KB = [
           url: "https://www.churchofjesuschrist.org/study/manual/come-follow-me-for-home-and-church-old-testament-2026/25?lang=eng",
         },
       },
+      {
+        name: "Esther",
+        host: "esther.ensign.quest",
+        url: "https://esther.ensign.quest/",
+        blurb: "Come Follow Me study tool for the book of Esther.",
+      },
     ],
   },
 ];
