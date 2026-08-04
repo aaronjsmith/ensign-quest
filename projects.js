@@ -36,6 +36,12 @@ window.ENSIGN_KB = [
         url: "https://esther.ensign.quest/",
         blurb: "Come Follow Me study tool for the book of Esther.",
       },
+      {
+        name: "ScriptDay",
+        host: "scriptday.ensign.quest",
+        url: "https://scriptday.ensign.quest/",
+        blurb: "Come Follow Me study resource.",
+      },
     ],
   },
 ];
