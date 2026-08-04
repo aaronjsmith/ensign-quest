@@ -34,7 +34,13 @@ window.ENSIGN_KB = [
         name: "Esther",
         host: "esther.ensign.quest",
         url: "https://esther.ensign.quest/",
-        blurb: "Come Follow Me study tool for the book of Esther.",
+        blurb:
+          "Come Follow Me study tool for the book of Esther, for the Come Follow Me — Old Testament 2026 lesson August 3–9: “Thou Art Come … for Such a Time as This.”",
+        reference: {
+          label:
+            "Official lesson: August 3–9. “Thou Art Come … for Such a Time as This”",
+          url: "https://www.churchofjesuschrist.org/study/manual/come-follow-me-for-home-and-church-old-testament-2026/32?lang=eng",
+        },
       },
       {
         name: "ScriptDay",
