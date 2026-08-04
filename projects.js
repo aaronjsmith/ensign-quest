@@ -44,4 +44,18 @@ window.ENSIGN_KB = [
       },
     ],
   },
+  {
+    id: "family-history",
+    name: "Family history",
+    summary: "Tools for family history research.",
+    entries: [
+      {
+        name: "GeoHints",
+        host: "geohints.rll.byu.edu",
+        url: "https://geohints.rll.byu.edu/",
+        blurb:
+          "View FamilySearch hints on a world map (BYU Record Linking Lab).",
+      },
+    ],
+  },
 ];
