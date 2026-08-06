@@ -17,6 +17,7 @@
       matchesQuery(entry.name, query) ||
       matchesQuery(entry.host || "", query) ||
       matchesQuery(entry.blurb || "", query) ||
+      matchesQuery(entry.github || "", query) ||
       matchesQuery(entry.reference?.label || "", query) ||
       matchesQuery(entry.reference?.url || "", query)
     );
@@ -55,6 +56,20 @@
       blurb.className = "kb-entry__blurb";
       blurb.textContent = entry.blurb;
       item.appendChild(blurb);
+    }
+
+    if (entry.github) {
+      const github = document.createElement("p");
+      github.className = "kb-entry__reference";
+      github.append("Source: ");
+
+      const githubLink = document.createElement("a");
+      githubLink.href = entry.github;
+      githubLink.rel = "noopener noreferrer";
+      githubLink.target = "_blank";
+      githubLink.textContent = "GitHub repository";
+      github.appendChild(githubLink);
+      item.appendChild(github);
     }
 
     if (entry.reference && entry.reference.url) {

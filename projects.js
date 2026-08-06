@@ -11,6 +11,13 @@ window.ENSIGN_KB = [
         url: "https://mat107.ensign.quest",
         blurb: "Course site for MAT 107.",
       },
+      {
+        name: "ENG 301 Dashboard Example",
+        host: "dashboard.ensign.quest",
+        url: "https://dashboard.ensign.quest/",
+        blurb: "Dashboard example for ENG 301.",
+        github: "https://github.com/aaronjsmith/eng301-dashboard",
+      },
     ],
   },
   {
