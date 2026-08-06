@@ -46,7 +46,8 @@ window.ENSIGN_KB = [
         name: "ScriptDay",
         host: "scriptday.ensign.quest",
         url: "https://scriptday.ensign.quest/",
-        blurb: "Come Follow Me study resource.",
+        blurb:
+          "Daily scripture study with Book of Mormon, Bible (KJV & WEB), Pearl of Great Price, and Doctrine and Covenants — notes, tags, and local sync.",
       },
     ],
   },
