@@ -18,6 +18,12 @@ window.ENSIGN_KB = [
         blurb: "Dashboard example for ENG 301.",
         github: "https://github.com/aaronjsmith/eng301-dashboard",
       },
+      {
+        name: "Learning to Read English",
+        host: "read.ensign.quest",
+        url: "https://read.ensign.quest/",
+        blurb: "Reading activities with sight words and progressive audio.",
+      },
     ],
   },
   {
