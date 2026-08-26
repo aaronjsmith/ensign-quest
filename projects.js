@@ -12,6 +12,14 @@ window.ENSIGN_KB = [
         blurb: "Course site for MAT 107.",
       },
       {
+        name: "MAT 252",
+        host: "mat252.ensign.quest",
+        url: "https://mat252.ensign.quest",
+        blurb:
+          "Unofficial student practice for Ensign College MAT 252 Statistics — quizzes by Canvas module, mastery model like MAT 107, dashboard UI.",
+        github: "https://github.com/aaronjsmith/mat252",
+      },
+      {
         name: "ENG 301 Dashboard Example",
         host: "dashboard.ensign.quest",
         url: "https://dashboard.ensign.quest/",
