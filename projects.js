@@ -32,6 +32,11 @@ window.ENSIGN_KB = [
         url: "https://read.ensign.quest/",
         blurb: "Reading activities with sight words and progressive audio.",
       },
+      {
+        name: "Cyber",
+        host: "cyber.ensign.quest",
+        url: "https://cyber.ensign.quest/",
+      },
     ],
   },
   {
