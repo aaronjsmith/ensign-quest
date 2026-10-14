@@ -1,6 +1,30 @@
 name = "ensign-quest"
 compatibility_date = "2026-07-28"
+main = "worker.js"
+workers_dev = false
+preview_urls = false
 
 # Static site — matches Cloudflare deploy command: npx wrangler deploy
 [assets]
 directory = "."
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+
+[observability]
+enabled = true
+
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+
+[observability.traces]
+enabled = true
+head_sampling_rate = 0.01
+
+[[routes]]
+pattern = "ensign.quest/*"
+zone_name = "ensign.quest"
+
+# Set these as Wrangler secrets before deploying:
+#   npx wrangler secret put CF_ZONE_ID
+#   npx wrangler secret put CLOUDFLARE_API_TOKEN

@@ -3,7 +3,7 @@
   const tocRoot = document.getElementById("toc");
   const searchInput = document.getElementById("kb-search");
   const emptyState = document.getElementById("kb-empty");
-  const sections = window.ENSIGN_KB || [];
+  let sections = window.ENSIGN_KB || [];
 
   if (!kbRoot || !tocRoot) return;
 
@@ -155,4 +155,58 @@
       render(searchInput.value);
     });
   }
+
+  function mergeCloudflareProjects(projects) {
+    const knownHosts = new Set(
+      sections.flatMap((section) =>
+        (section.entries || []).map((entry) => entry.host),
+      ),
+    );
+    const newEntries = projects.filter(
+      (project) => project.host && !knownHosts.has(project.host),
+    );
+
+    if (newEntries.length === 0) return;
+
+    const dynamicSection = sections.find(
+      (section) => section.id === "cloudflare-projects",
+    );
+    if (dynamicSection) {
+      dynamicSection.entries.push(...newEntries);
+    } else {
+      sections = [
+        ...sections,
+        {
+          id: "cloudflare-projects",
+          name: "Cloudflare projects",
+          summary: "Live project subdomains discovered from Cloudflare DNS.",
+          entries: newEntries,
+        },
+      ];
+    }
+
+    render(searchInput?.value || "");
+  }
+
+  async function loadCloudflareProjects() {
+    try {
+      const response = await fetch("/api/projects", {
+        cache: "no-store",
+        headers: { Accept: "application/json" },
+      });
+      if (!response.ok) return;
+
+      const payload = await response.json();
+      if (Array.isArray(payload.projects)) {
+        mergeCloudflareProjects(payload.projects);
+      }
+    } catch {
+      // The curated project list remains available if DNS discovery is down.
+    }
+  }
+
+  loadCloudflareProjects();
+  window.setInterval(() => {
+    loadCloudflareProjects();
+  }, 5 * 60 * 1000);
 })();

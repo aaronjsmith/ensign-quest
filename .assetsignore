@@ -2,5 +2,6 @@
 .wrangler/
 .gitignore
 wrangler.toml
+worker.js
 *.md
 .DS_Store
